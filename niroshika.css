@@ -1,0 +1,171 @@
+/* Complete modern man.css */
+:root {
+  --primary-color: #2d3436;
+  --secondary-color: #0984e3;
+  --text-color: #2d3436;
+  --background-color: #f5f6fa;
+  --spacing-unit: 1rem;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: calc(var(--spacing-unit) * 2);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Main content area */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--spacing-unit) * 2);
+  margin-bottom: 60px; /* Space for fixed footer */
+}
+
+/* Typography */
+h2 {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-unit);
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* Links */
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto calc(var(--spacing-unit) * 2);
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform var(--transition-speed) ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-unit);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+/* Cards and sections */
+.card {
+  background: white;
+  padding: var(--spacing-unit);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: var(--spacing-unit);
+}
+
+.section {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  :root {
+    --spacing-unit: 0.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  main {
+    padding: var(--spacing-unit);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  footer {
+    position: static;
+  }
+  
+  body {
+    margin: 0;
+    padding: 20px;
+  }
+}

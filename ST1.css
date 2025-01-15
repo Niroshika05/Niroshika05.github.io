@@ -1,0 +1,243 @@
+/* Complete modern styles.css */
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --background-light: #f8fafc;
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --border-radius: 20px;
+  --transition: 0.3s ease;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  background-image: url('Design-of-Experiment-DOE-The-Game-Changing-Strategy-Every-Expert-Swears-By-scaled.webp');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* Layout */
+.page-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Header */
+header {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 2.5rem 2rem;
+  position: relative;
+  isolation: isolate;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  z-index: -1;
+  opacity: 0.1;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+h3, h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+/* Main container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  padding: 3rem;
+  background: var(--background-light);
+  margin: 3rem auto;
+  max-width: 1400px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* Sections */
+.side {
+  background: white;
+  padding: 2rem;
+  border-radius: calc(var(--border-radius) - 5px);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition);
+}
+
+.side:hover {
+  transform: translateY(-5px);
+}
+
+/* Skills */
+.skill {
+  margin-bottom: 1.5rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.skill-level {
+  height: 100%;
+  background: var(--primary-gradient);
+  border-radius: 999px;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Timeline items */
+.education-item, .work-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.education-item::before, .work-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--primary-gradient);
+}
+
+/* Images */
+img {
+  display: block;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition);
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: var(--primary-gradient);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+/* Contact section */
+.contact-section {
+  margin: 2rem 0;
+}
+
+.contact-section a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.contact-section a:hover {
+  color: var(--secondary-color);
+}
+
+/* Language section */
+.language-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.language-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* Achievements section */
+.achievements-section p {
+  margin-bottom: 0.5rem;
+}
+
+/* Resume download button */
+.download-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-gradient);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform var(--transition);
+}
+
+.download-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  header {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .side {
+    padding: 1.5rem;
+  }
+}
+
+/* Animation for skill bars */
+@keyframes skillFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--skill-percentage);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

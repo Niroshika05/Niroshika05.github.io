@@ -1,0 +1,211 @@
+/* Complete modern style.css */
+:root {
+  --primary-color: #007BFF;
+  --secondary-color: #003267;
+  --text-color: #333;
+  --background-overlay: rgba(255, 255, 255, 0.95);
+  --animation-duration: 0.8s;
+  --container-width: 1400px;
+  --border-radius: 15px;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('portrait-indigenous-person-integrating-society.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 3rem 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  animation: fadeInDown var(--animation-duration) ease-out;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Container and layout */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--background-overlay);
+  margin: 2rem auto;
+  max-width: var(--container-width);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.side {
+  animation: fadeInUp var(--animation-duration) ease-out;
+}
+
+/* Typography */
+h2 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+h3, h4 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+/* Skills section */
+.skill {
+  margin-bottom: 1.5rem;
+}
+
+.skill-bar {
+  width: 100%;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.skill-level {
+  height: 20px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+  position: relative;
+}
+
+.skill-level::after {
+  content: attr(data-level);
+  position: absolute;
+  right: 10px;
+  color: white;
+  font-size: 0.8rem;
+  line-height: 20px;
+}
+
+/* Animated elements */
+.animated-text {
+  font-size: 1.8rem;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  animation: fadeInUp var(--animation-duration) ease-out;
+}
+
+/* Images */
+img {
+  display: block;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn var(--animation-duration);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--secondary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  header {
+    padding: 2rem 1rem;
+  }
+  
+  .animated-text {
+    font-size: 1.4rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
